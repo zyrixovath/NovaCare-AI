@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Symptom Analysis — AI Health Assistant</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body data-page="symptoms">
+
+  <!-- ═══════════════════════════════════════
+       NAVIGATION
+  ═══════════════════════════════════════ -->
+  <nav class="navbar" role="navigation" aria-label="Main navigation">
+    <div class="nav-inner">
+      <a href="index.html" class="nav-logo" aria-label="AI Health Assistant home">
+        <div class="logo-icon" aria-hidden="true">⚕</div>
+        <span>AI Health Assistant</span>
+      </a>
+      <div class="nav-cta">
+        <button id="logout-btn" class="btn btn-ghost btn-sm">Sign Out</button>
+      </div>
+    </div>
+  </nav>
+
+  <!-- ═══════════════════════════════════════
+       PAGE HEADER
+  ═══════════════════════════════════════ -->
+  <header class="page-header" role="banner">
+    <div class="page-header-inner">
+      <h1>Symptom Analysis</h1>
+      <p>Describe what you're experiencing and we'll generate a personalised health summary.</p>
+    </div>
+  </header>
+
+  <main role="main" class="symptom-page">
+
+    <!-- ═══════════════════════════════════════
+         USER PROFILE BANNER
+    ═══════════════════════════════════════ -->
+    <div class="user-profile-banner" aria-label="Your health profile" role="region">
+      <div class="profile-avatar" id="banner-avatar" aria-hidden="true">?</div>
+
+      <div class="profile-info">
+        <h3 id="banner-name">Loading…</h3>
+        <div class="profile-meta">
+          <span class="profile-tag" id="banner-age-gender">—</span>
+        </div>
+      </div>
+
+      <div class="profile-conditions">
+        <div class="profile-conditions-label">Existing Conditions</div>
+        <div id="banner-conditions">—</div>
+        <div class="profile-conditions-label" style="margin-top:10px;">Allergies</div>
+        <div id="banner-allergies" style="font-size:0.82rem; color:var(--slate-600);">—</div>
+      </div>
+    </div>
+
+    <!-- ═══════════════════════════════════════
+         SYMPTOM FORM
+    ═══════════════════════════════════════ -->
+    <div class="symptom-form-wrap">
+      <form id="symptom-form" class="card" novalidate aria-label="Symptom entry form">
+
+        <!-- Symptom Description -->
+        <div class="card-section-title">Describe Your Symptoms</div>
+        <div class="form-group" style="margin-bottom:20px;">
+          <label for="symptoms">What symptoms are you experiencing? <span style="color:var(--red-500)">*</span></label>
+          <textarea id="symptoms" name="symptoms" rows="4"
+            placeholder="e.g. I have a persistent headache on the left side of my head, along with mild nausea and light sensitivity. My vision feels slightly blurred."
+            required></textarea>
+        </div>
+
+        <!-- Duration -->
+        <div class="form-grid" style="margin-bottom:20px;">
+          <div class="form-group">
+            <label for="duration">How long have you had these symptoms? <span style="color:var(--red-500)">*</span></label>
+            <input type="text" id="duration" name="duration"
+              placeholder="e.g. 2 days, since this morning" required />
+          </div>
+
+          <!-- Severity -->
+          <div class="form-group">
+            <label>Severity Level <span style="color:var(--red-500)">*</span></label>
+            <div class="severity-group" role="radiogroup" aria-label="Symptom severity">
+              <input class="severity-option" type="radio" name="severity" id="sev-low" value="low" />
+              <label class="severity-label" for="sev-low">😌 Low</label>
+
+              <input class="severity-option" type="radio" name="severity" id="sev-medium" value="medium" />
+              <label class="severity-label" for="sev-medium">😟 Medium</label>
+
+              <input class="severity-option" type="radio" name="severity" id="sev-high" value="high" />
+              <label class="severity-label" for="sev-high">😰 High</label>
+            </div>
+          </div>
+        </div>
+
+        <!-- Additional Notes -->
+        <div class="form-group" style="margin-bottom:8px;">
+          <label for="notes">Additional Notes <span style="color:var(--slate-400); font-weight:400">(optional)</span></label>
+          <textarea id="notes" name="notes" rows="2"
+            placeholder="e.g. Symptoms are worse in the morning. I haven't slept well. No recent travel or change in diet."></textarea>
+        </div>
+
+        <!-- Info note -->
+        <div class="analyze-note" role="note">
+          <span aria-hidden="true">ℹ️</span>
+          <span>Your existing conditions and allergies are automatically considered in the analysis.</span>
+        </div>
+
+        <!-- Disclaimer -->
+        <div class="disclaimer" style="margin: 20px 0 0; max-width:100%;" role="alert">
+          <div class="disclaimer-inner">
+            <div class="disclaimer-icon">⚠️</div>
+            <div>
+              <strong>Not a Medical Diagnosis</strong>
+              <p>Results are informational only. Always verify with a qualified healthcare professional.</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="form-actions">
+          <button id="analyze-btn" type="submit" class="btn btn-primary btn-lg btn-full">
+            🔍  Analyse My Symptoms
+          </button>
+        </div>
+
+      </form>
+    </div>
+
+  </main>
+
+  <footer role="contentinfo">
+    <p>© 2025 AI Health Assistant. For informational use only. In an emergency, call <strong style="color:white;">999 / 112 / 911</strong>.</p>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
