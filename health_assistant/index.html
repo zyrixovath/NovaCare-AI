@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>AI Health Assistant — Smart Symptom Analysis</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body data-page="home">
+
+  <!-- ═══════════════════════════════════════
+       NAVIGATION
+  ═══════════════════════════════════════ -->
+  <nav class="navbar" role="navigation" aria-label="Main navigation">
+    <div class="nav-inner">
+      <!-- Logo -->
+      <a href="index.html" class="nav-logo" aria-label="AI Health Assistant home">
+        <div class="logo-icon" aria-hidden="true">⚕</div>
+        <span>NOVACARE AI</span>
+      </a>
+
+      <!-- Desktop links -->
+      <ul class="nav-links" role="list">
+        <li><a href="#features">Features</a></li>
+        <li><a href="#about">About</a></li>
+        <li><a href="#disclaimer">Disclaimer</a></li>
+      </ul>
+
+      <!-- Desktop CTA area -->
+      <div class="nav-cta">
+        <span id="nav-welcome" class="nav-welcome" style="display:none" aria-live="polite"></span>
+        <button class="btn btn-ghost btn-sm logout-btn" aria-label="Logout">Sign Out</button>
+        <a id="login-btn" href="login.html" class="btn btn-primary btn-sm">Login / Register</a>
+      </div>
+
+      <!-- Mobile hamburger -->
+      <button class="hamburger" id="hamburger" aria-label="Toggle menu" aria-expanded="false">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+
+    <!-- Mobile menu -->
+    <div class="mobile-menu" id="mobile-menu" role="menu">
+      <a href="#features" role="menuitem">Features</a>
+      <a href="#about" role="menuitem">About</a>
+      <a href="#disclaimer" role="menuitem">Disclaimer</a>
+      <button class="logout-btn" style="display:none; color:#d94f4f;" role="menuitem">Sign Out</button>
+      <a id="login-btn-mobile" href="login.html" role="menuitem">Login / Register</a>
+    </div>
+  </nav>
+
+  <!-- ═══════════════════════════════════════
+       HERO
+  ═══════════════════════════════════════ -->
+  <section class="hero" aria-labelledby="hero-heading">
+    <div class="hero-inner">
+      <div class="hero-content">
+        <div class="hero-eyebrow" aria-label="Product tag">
+          <span>⚕</span> AI-Powered Healthcare Tool
+        </div>
+        <h1 id="hero-heading">
+          Understand Your <span>Symptoms</span> Before You See a Doctor
+        </h1>
+        <p>
+          Enter your symptoms and receive an intelligent, personalised health summary — including possible conditions, risk levels, and next steps — all from your browser, with no data ever leaving your device.
+        </p>
+        <div class="hero-cta-group">
+          <a id="hero-cta-btn" href="login.html" class="btn btn-primary btn-lg">
+            ▶  Start Symptom Analysis
+          </a>
+          <a href="#features" class="btn btn-outline btn-lg" style="border-color:rgba(255,255,255,0.5);color:white;">
+            Learn More
+          </a>
+        </div>
+      </div>
+
+      <!-- Decorative stats card (desktop) -->
+      <div class="hero-visual" aria-hidden="true">
+        <div class="hero-card">
+          <div class="hero-card-stat">
+            <div class="stat-icon">🔒</div>
+            <div>
+              <div class="stat-label">Data Privacy</div>
+              <div class="stat-value">100% On-Device</div>
+            </div>
+          </div>
+          <div class="hero-card-stat">
+            <div class="stat-icon">⚡</div>
+            <div>
+              <div class="stat-label">Analysis Time</div>
+              <div class="stat-value">Under 2 Seconds</div>
+            </div>
+          </div>
+          <div class="hero-card-stat">
+            <div class="stat-icon">📋</div>
+            <div>
+              <div class="stat-label">Symptom Categories</div>
+              <div class="stat-value">30+ Covered</div>
+            </div>
+          </div>
+          <div class="hero-card-stat">
+            <div class="stat-icon">🩺</div>
+            <div>
+              <div class="stat-label">Purpose</div>
+              <div class="stat-value">Pre-Consultation Aid</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════
+       MEDICAL DISCLAIMER BANNER
+  ═══════════════════════════════════════ -->
+  <div id="disclaimer" role="alert" aria-label="Medical disclaimer" style="padding: 24px 0;">
+    <div class="disclaimer">
+      <div class="disclaimer-inner">
+        <div class="disclaimer-icon">⚠️</div>
+        <div>
+          <strong>Medical Disclaimer</strong>
+          <p>
+            AI Health Assistant is an informational tool only and does not provide medical advice, diagnosis, or treatment. All output is generated from pattern matching and should not replace professional medical judgement. Always consult a qualified healthcare provider for any medical concerns. In an emergency, call your local emergency services immediately.
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ═══════════════════════════════════════
+       FEATURES
+  ═══════════════════════════════════════ -->
+  <section id="features" class="section" aria-labelledby="features-heading">
+    <div class="section-inner">
+      <div class="section-header">
+        <div class="section-eyebrow">What We Offer</div>
+        <h2 id="features-heading">Built for Informed Patients</h2>
+        <p>Every feature is designed to give you clarity — not anxiety — before your next medical appointment.</p>
+      </div>
+
+      <div class="features-grid">
+
+        <div class="feature-card">
+          <div class="feature-icon" aria-hidden="true">🔒</div>
+          <h3>Fully Private</h3>
+          <p>Your health data stays on your device. We use <code>localStorage</code> — no servers, no databases, no third-party tracking.</p>
+        </div>
+
+        <div class="feature-card">
+          <div class="feature-icon" aria-hidden="true">🧬</div>
+          <h3>Personalised Analysis</h3>
+          <p>Your profile — including existing conditions, allergies, and medications — is factored into every analysis session.</p>
+        </div>
+
+        <div class="feature-card">
+          <div class="feature-icon" aria-hidden="true">📊</div>
+          <h3>Risk Assessment</h3>
+          <p>Receive a clear Low / Medium / High risk rating and confidence score for each set of symptoms you report.</p>
+        </div>
+
+        <div class="feature-card">
+          <div class="feature-icon" aria-hidden="true">🗺️</div>
+          <h3>Actionable Next Steps</h3>
+          <p>Every result includes a curated list of recommended actions — from self-care to urgent emergency guidance.</p>
+        </div>
+
+        <div class="feature-card">
+          <div class="feature-icon" aria-hidden="true">💾</div>
+          <h3>Persistent Profile</h3>
+          <p>Register once. Your profile is remembered across visits so returning users go straight to symptom analysis.</p>
+        </div>
+
+        <div class="feature-card">
+          <div class="feature-icon" aria-hidden="true">📱</div>
+          <h3>Mobile-First Design</h3>
+          <p>Fully responsive and optimised for any screen size — use it on your phone in the waiting room.</p>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════
+       ABOUT
+  ═══════════════════════════════════════ -->
+  <section id="about" class="section about-section" aria-labelledby="about-heading">
+    <div class="section-inner">
+      <div class="about-grid">
+        <div>
+          <div class="section-eyebrow" style="color:var(--teal-300)">About the Tool</div>
+          <h2 id="about-heading">A Smarter Way to Prepare for Your GP Visit</h2>
+          <p>AI Health Assistant bridges the gap between feeling unwell and knowing what to do next. By combining your personal health profile with intelligent symptom analysis, we help you walk into any medical appointment better informed.</p>
+          <p>This tool is designed for informational use only — it is not a substitute for clinical diagnosis. Think of it as a knowledgeable friend who helps you ask the right questions.</p>
+          <div style="margin-top:28px; display:flex; gap:14px; flex-wrap:wrap;">
+            <a href="login.html" class="btn btn-primary">Create Your Profile</a>
+          </div>
+        </div>
+
+        <div class="about-stats" aria-label="Key statistics">
+          <div class="about-stat">
+            <div class="about-stat-num">100%</div>
+            <div class="about-stat-label">Browser-based, no data upload</div>
+          </div>
+          <div class="about-stat">
+            <div class="about-stat-num">30+</div>
+            <div class="about-stat-label">Symptom categories covered</div>
+          </div>
+          <div class="about-stat">
+            <div class="about-stat-num">Free</div>
+            <div class="about-stat-label">Always, no subscription</div>
+          </div>
+          <div class="about-stat">
+            <div class="about-stat-num">Fast</div>
+            <div class="about-stat-label">Results in under 2 seconds</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════
+       FOOTER
+  ═══════════════════════════════════════ -->
+  <footer role="contentinfo">
+    <p>© 2025 AI Health Assistant. For informational use only. Not a medical device.</p>
+    <p style="margin-top:6px;">In an emergency, call <strong style="color:white;">999 / 112 / 911</strong>.</p>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>

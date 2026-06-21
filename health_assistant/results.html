@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Analysis Results — AI Health Assistant</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body data-page="results">
+
+  <!-- ═══════════════════════════════════════
+       NAVIGATION
+  ═══════════════════════════════════════ -->
+  <nav class="navbar" role="navigation" aria-label="Main navigation">
+    <div class="nav-inner">
+      <a href="index.html" class="nav-logo" aria-label="AI Health Assistant home">
+        <div class="logo-icon" aria-hidden="true">⚕</div>
+        <span>AI Health Assistant</span>
+      </a>
+      <div class="nav-cta">
+        <button id="logout-btn" class="btn btn-ghost btn-sm">Sign Out</button>
+      </div>
+    </div>
+  </nav>
+
+  <!-- ═══════════════════════════════════════
+       PAGE HEADER
+  ═══════════════════════════════════════ -->
+  <header class="page-header" role="banner">
+    <div class="page-header-inner">
+      <h1>Analysis Results</h1>
+      <p id="results-patient" style="color:rgba(255,255,255,0.7); margin-top:4px; font-size:0.9rem;">Loading…</p>
+    </div>
+  </header>
+
+  <main role="main" class="results-page">
+
+    <!-- ═══════════════════════════════════════
+         URGENT DISCLAIMER
+    ═══════════════════════════════════════ -->
+    <div class="results-disclaimer" role="alert" aria-live="assertive">
+      <strong>⚠️ Important Medical Disclaimer</strong>
+      <p>
+        The following is AI-generated informational content only. It does not constitute a medical diagnosis, professional medical advice, or treatment recommendation. Possible conditions listed are based on symptom pattern matching and carry significant uncertainty. Always consult a licensed healthcare professional for any health concern. If you are experiencing a medical emergency, call <strong>999 / 112 / 911</strong> immediately.
+      </p>
+    </div>
+
+    <!-- ═══════════════════════════════════════
+         RESULTS CARDS GRID
+    ═══════════════════════════════════════ -->
+    <div class="results-grid" aria-label="Analysis results">
+
+      <!-- Risk Level -->
+      <div class="result-card" role="region" aria-labelledby="risk-title">
+        <div class="result-card-title" id="risk-title">Overall Risk Level</div>
+        <div id="risk-level" aria-live="polite">
+          <span class="risk-badge risk-low">⏳ Calculating…</span>
+        </div>
+        <p style="margin-top:12px; font-size:0.83rem; color:var(--slate-400);">
+          Risk level is based on reported symptoms and severity. High severity or certain symptom patterns elevate the rating.
+        </p>
+      </div>
+
+      <!-- Confidence Score -->
+      <div class="result-card" role="region" aria-labelledby="conf-title">
+        <div class="result-card-title" id="conf-title">Confidence Score</div>
+        <div style="display:flex; align-items:baseline; gap:8px;">
+          <span id="confidence-num" style="font-size:2.2rem; font-weight:700; font-family:var(--font-display); color:var(--teal-700);" aria-live="polite">—</span>
+          <span style="font-size:0.85rem; color:var(--slate-400);">match certainty</span>
+        </div>
+        <div class="confidence-bar-wrap" aria-label="Confidence bar">
+          <div class="confidence-bar-track">
+            <div class="confidence-bar-fill" id="confidence-fill" style="width:0%" role="progressbar" aria-valuemin="0" aria-valuemax="100"></div>
+          </div>
+          <div class="confidence-label">
+            <span>Low</span><span>High</span>
+          </div>
+        </div>
+        <p style="font-size:0.8rem; color:var(--slate-400); margin-top:8px;">
+          Confidence reflects how closely your symptoms match known condition patterns. Lower scores indicate broader diagnostic uncertainty.
+        </p>
+      </div>
+
+      <!-- Possible Conditions -->
+      <div class="result-card full" role="region" aria-labelledby="cond-title">
+        <div class="result-card-title" id="cond-title">Possible Conditions</div>
+        <p style="font-size:0.83rem; color:var(--slate-400); margin-bottom:16px;">
+          Listed by estimated probability. These are educational possibilities — not diagnoses.
+        </p>
+        <div class="conditions-list" id="conditions-list" aria-live="polite">
+          <!-- Populated by JS -->
+        </div>
+      </div>
+
+      <!-- Symptom Summary -->
+      <div class="result-card" role="region" aria-labelledby="symp-title">
+        <div class="result-card-title" id="symp-title">Your Symptom Report</div>
+        <div class="symptom-summary" id="symptom-summary" aria-live="polite">
+          <!-- Populated by JS -->
+        </div>
+      </div>
+
+      <!-- Recommended Actions -->
+      <div class="result-card" role="region" aria-labelledby="action-title">
+        <div class="result-card-title" id="action-title">Recommended Actions</div>
+        <p style="font-size:0.83rem; color:var(--slate-400); margin-bottom:16px;">
+          Follow these steps — and always verify with a healthcare provider.
+        </p>
+        <div class="action-steps" id="action-steps" aria-live="polite">
+          <!-- Populated by JS -->
+        </div>
+      </div>
+
+    </div>
+
+    <!-- ═══════════════════════════════════════
+         ACTIONS BAR
+    ═══════════════════════════════════════ -->
+    <div class="results-actions" role="navigation" aria-label="Post-results actions">
+      <button id="new-analysis-btn" class="btn btn-primary btn-lg">
+        🔄  Run New Analysis
+      </button>
+      <a href="login.html" class="btn btn-outline btn-lg">
+        ✏️  Update My Profile
+      </a>
+      <a href="index.html" class="btn btn-ghost btn-lg">
+        ← Back to Home
+      </a>
+    </div>
+
+    <!-- Emergency callout -->
+    <div style="max-width:900px; margin:0 auto 60px; padding:0 24px;">
+      <div style="background:var(--red-100); border:1px solid var(--red-500); border-radius:var(--radius-md); padding:20px 24px; display:flex; gap:14px; align-items:center;">
+        <span style="font-size:2rem;" aria-hidden="true">🚨</span>
+        <div>
+          <strong style="color:var(--red-500); font-size:0.95rem;">If you are in immediate danger or having a medical emergency:</strong>
+          <p style="font-size:0.88rem; margin-top:4px; color:var(--slate-700);">
+            Stop using this tool and call emergency services immediately — <strong>999</strong> (UK) · <strong>112</strong> (EU) · <strong>911</strong> (US/Canada).
+          </p>
+        </div>
+      </div>
+    </div>
+
+  </main>
+
+  <footer role="contentinfo">
+    <p>© 2025 AI Health Assistant. For informational use only. Not a medical device.</p>
+    <p style="margin-top:6px;">In an emergency, call <strong style="color:white;">999 / 112 / 911</strong>.</p>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
